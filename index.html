@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="Total">
+        <div class="Inner">
+            <input type="text" id="operations" placeholder="0" >
+            <button onclick="AllClear()" >AC</button>
+            <button onclick="Delete()" >DEL</button>
+            <button onclick="show('%')" >%</button>
+            <button onclick="show('/')" >/</button>
+            <button onclick="show('7')" >7</button>
+            <button onclick="show('8')" >8</button>
+            <button onclick="show('9')" >9</button>
+            <button onclick="show('*')" >x</button>
+            <button onclick="show('4')" >4</button>
+            <button onclick="show('5')" >5</button>
+            <button onclick="show('6')" >6</button>
+            <button onclick="show('-')" >-</button>
+            <button onclick="show('1')" >1</button>
+            <button onclick="show('2')" >2</button>
+            <button onclick="show('3')" >3</button>
+            <button onclick="show('+')" >+</button>
+            <button onclick="show('0')" >0</button>
+            <button onclick="show('.')" >.</button>
+            <button class="logo"><img src="js/1.jpg" style="width: 50px; height:30px;"></button>
+            <button onclick="Evaluate()" class="result">=</button>
+        </div>
+    </div>
+    <script>
+    let operation=document.getElementById("operations");
+    
+    function AllClear(){
+        operation.value="";
+    }
+    function show(input){
+    operation.value += input;
+    }
+    function Delete(){
+        operation.value=operation.value.slice(0,-1);
+    }
+    function Evaluate(){
+        try{
+            operation.value = eval(operation.value);
+        }
+        catch (err){
+        alert("INVALID INPUT ENTERED!")
+        }
+    }
+    </script>
+</body>
+</html>
